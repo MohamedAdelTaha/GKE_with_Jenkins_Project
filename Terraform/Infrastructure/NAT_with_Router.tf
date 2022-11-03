@@ -1,15 +1,17 @@
-resource "google_compute_router_nat" "nat" {
-  name                               = "my-nat"
-  router                             = google_compute_router.router.name
-  region                             = google_compute_subnetwork.management-subnet.region
-  nat_ip_allocate_option             = "AUTO_ONLY"
-  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+resource "google_compute_firewall" "allow-ssh" {
+  name    = "allow-ssh"
+  network = var.vpcName
 
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
 }
-
-
-resource "google_compute_router" "router" {
-  name    = "my-router"
-  region  = google_compute_subnetwork.management-subnet.region
-  network = google_compute_network.vpc-network.id
+resource "google_compute_route" "egress_internet" {
+  name             = "egress-internet"
+  dest_range       = "0.0.0.0/0"
+  network          = google_compute_network.vpc-network.name
+  next_hop_gateway = "default-internet-gateway"
 }
