@@ -22,5 +22,4 @@
         - Pushes the built image to my dockerhub account
         - Uses this pushed image in the node app kubernetes deployment.
 
-- The image used in the jenkins deployment 
 - I used a customized image of jenkins that contains also docker, kubctl and gcloud. (You can find the docker file used to build this image [Here](https://github.com/MohamedAdelTaha/inhanced_jenkins_image.git))
