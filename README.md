@@ -10,7 +10,7 @@
 
 - This project:
     - Builds infrastructure for two subents (management - restricted).
-    - Runs a bastion server in aims to a seucre connection to the GKE cluster.
+    - Runs a bastion server with aims to a secure connection to the GKE cluster.
     - Builds a secure GKE Cluster.
     - Create two namespaces:   
         - jenkins: to jenkins pods
@@ -21,3 +21,6 @@
         - Builds a docker image using the Dockerfile within the same repo.
         - Pushes the built image to my dockerhub account
         - Uses this pushed image in the node app kubernetes deployment.
+
+- The image used in the jenkins deployment 
+- I used a customized image of jenkins that contains also docker, kubctl and gcloud. (You can find the docker file used to build this image [Here](https://github.com/MohamedAdelTaha/inhanced_jenkins_image.git))
