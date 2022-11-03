@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  node-app-service
+spec:
+  selector:
+    app:  nodeapp
+  type: LoadBalancer
+  ports:
+    - targetPort:  3000
+      port:  3000
