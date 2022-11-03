@@ -8,5 +8,5 @@ module "bastion_module" {
 }
 
 module "gke_cluster_module" {
-  source = "./modules/GKE_Cluster"
+  source = "./GKE_Cluster"
 }
