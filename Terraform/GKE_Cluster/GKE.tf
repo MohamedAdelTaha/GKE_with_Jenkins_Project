@@ -3,8 +3,8 @@ resource "google_container_cluster" "private-cluster" {
   location                 = "us-central1-a"
   remove_default_node_pool = true
   initial_node_count       = 1
-  network                  = google_compute_network.vpc-network.id
-  subnetwork               = google_compute_subnetwork.restricted-subnet.id
+  network                  = var.network
+  subnetwork               = var.subnetwork
 
   node_locations = [
     "us-central1-c"

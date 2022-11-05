@@ -13,8 +13,8 @@ resource "google_compute_instance" "bastion-server" {
   }
 
   network_interface {
-    network    = google_compute_network.vpc-network.id
-    subnetwork = google_compute_subnetwork.management-subnet.id
+    network    = var.vpc_id
+    subnetwork = var.management_subnet
   }
 
   service_account {
